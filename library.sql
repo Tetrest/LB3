@@ -1,10 +1,12 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+
 CREATE TABLE `author` (
   `Id` int NOT NULL,
   `NAME` varchar(60) CHARACTER SET cp1251 COLLATE cp1251_general_cs DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=cp1251 COLLATE=cp1251_general_cs;
+
 INSERT INTO `author` (`Id`, `NAME`) VALUES
 (1, 'Пушкин А.'),
 (2, 'Успенский Э.'),
@@ -16,10 +18,12 @@ INSERT INTO `author` (`Id`, `NAME`) VALUES
 (8, 'Эрнест Хемингуэй'),
 (9, 'Лев Толстой'),
 (10, 'Рихтер');
+
 CREATE TABLE `book_authrs` (
   `FID_BOOK` int DEFAULT NULL,
   `FID_AUTH` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=cp1251 COLLATE=cp1251_general_cs;
+
 INSERT INTO `book_authrs` (`FID_BOOK`, `FID_AUTH`) VALUES
 (1, 1),
 (2, 2),
@@ -32,6 +36,7 @@ INSERT INTO `book_authrs` (`FID_BOOK`, `FID_AUTH`) VALUES
 (9, 8),
 (10, 9),
 (11, 10);
+
 CREATE TABLE `literature` (
   `Id` int NOT NULL,
   `NAME` varchar(60) CHARACTER SET cp1251 COLLATE cp1251_general_cs NOT NULL,
@@ -44,6 +49,7 @@ CREATE TABLE `literature` (
   `LITERATE` varchar(60) CHARACTER SET cp1251 COLLATE cp1251_general_cs DEFAULT NULL,
   `FID_RES` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=cp1251 COLLATE=cp1251_general_cs;
+
 INSERT INTO `literature` (`Id`, `NAME`, `DAT`, `YEAR`, `PUBLISHER`, `QUANTITY`, `ISBN`, `NUMBER`, `LITERATE`, `FID_RES`) VALUES
 (1, 'Географія 7', '2021-01-26 12:09:59', 2021, 'Генеза', 11, 9789661111195, 37, 'Book', 3),
 (2, 'Forbes', '2021-02-14 00:00:00', 2021, 'Forbes Inc', 4, 9785852703705, 53, 'Journal', 2),
@@ -56,6 +62,7 @@ INSERT INTO `literature` (`Id`, `NAME`, `DAT`, `YEAR`, `PUBLISHER`, `QUANTITY`, 
 (9, 'Старик и море', '1952-10-12 00:00:00', 1952, 'Neoclassic', 15, 9785170713684, 127, 'Book', 9),
 (10, 'Война и мир', '1967-12-26 00:00:00', 1867, 'Азбука', 15, 978538062566, 1504, 'Book', 10),
 (11, 'frontend cource', '2022-11-26 12:11:00', 2022, 'Self published', 1, 11111111, 1, 'cource', 1);
+
 CREATE TABLE `resourse` (
   `Id` int NOT NULL,
   `IMG` blob
